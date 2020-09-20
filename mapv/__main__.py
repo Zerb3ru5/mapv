@@ -1,13 +1,13 @@
 import click
 
 
-@click.command()
+@click.group()
 def main():
-    pass
+    print('main')
 
-@click.command()
+@main.command()
 def hello():
-    pass
+    print('hello')
 
 if __name__=="__main__":
     main()
