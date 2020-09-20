@@ -1,0 +1,3 @@
+[console_scripts]
+mapv = mapv.__main__:main
+
