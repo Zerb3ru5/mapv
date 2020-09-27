@@ -9,4 +9,6 @@ mapv.egg-info/dependency_links.txt
 mapv.egg-info/entry_points.txt
 mapv.egg-info/top_level.txt
 mapv/computations/__init__.py
+mapv/computations/object.py
+mapv/computations/simulation.py
 mapv/visuals/__init__.py
