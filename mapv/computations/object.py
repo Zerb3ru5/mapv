@@ -1,7 +1,7 @@
 class Object(dict):
 
     '''
-    The :class: Object is a 
+    The :class: Object stored the information of one specific thing in a simulation.
     '''
 
     default_obj = {

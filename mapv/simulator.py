@@ -19,15 +19,17 @@ def simulator(ctx, name):
     ctx.txt = name + ' > '
 
     # load the simulation data
-    ctx.simulation = Simulation()
+    ctx.obj = Simulation()
 
 
 @simulator.command()
-def start():
+@click.pass_obj
+def start(simulation):
     '''
     This command starts a simulation with the parameters defined in the simulations settings.
     '''
     click.echo('simulation started')
+    simulation.simulate()
 
 
 if __name__ == '__main__':
