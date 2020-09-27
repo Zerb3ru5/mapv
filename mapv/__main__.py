@@ -11,7 +11,7 @@ def main():
 @click.argument('name')
 def sim(name):
     print('hello, ', name)
-    os.system('python C:/Users/Nutzer/Desktop/Private/Programming/Projects/mapv/mapv/simulator.py')
+    os.system(f'python C:/Users/Nutzer/Desktop/Private/Programming/Projects/mapv/mapv/simulator.py {name}')
 
 
 if __name__=="__main__":
