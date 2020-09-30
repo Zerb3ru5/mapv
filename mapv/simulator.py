@@ -28,8 +28,8 @@ def start(simulation):
     '''
     This command starts a simulation with the parameters defined in the simulations settings.
     '''
-    click.echo('simulation started')
     simulation.simulate()
+    click.echo('simulation started')
 
 
 if __name__ == '__main__':

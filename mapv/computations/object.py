@@ -12,7 +12,7 @@ class Object(dict):
         },
         'mass': 1, # the mass in grams
         'velocity': [0, 0], # the velocity as two seperate velocity vectors, in m/s
-        'acceleration': [0, 0], # the acceleration as two seperate acceleration vectors in m/s
+        'acceleration': [0, 1], # the acceleration as two seperate acceleration vectors in m/s
         'position': [0, 0], # the position in kartesian coordinates
     }
 
@@ -29,5 +29,5 @@ class Object(dict):
         return self.default_obj
 
     
-    def __repr__(self):
-        return f"<class 'mapv.object'><name '{super().get('name')}'>"
+    # def __repr__(self):
+    #     return f"<class 'mapv.object'><name '{super().get('name')}', position {super().get('position')}>"
