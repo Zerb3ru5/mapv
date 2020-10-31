@@ -14,3 +14,4 @@ mapv/computations/object.py
 mapv/computations/simulation.py
 mapv/computations/state.py
 mapv/visuals/__init__.py
+mapv/visuals/visualization.py

@@ -1,33 +1,75 @@
-class Object(dict):
+import math
+from copy import copy
 
+class Object:
     '''
-    The :class: Object stored the information of one specific thing in a simulation.
+    A `Object` stores the information of one specific object in the simulation. 
+    It tracks also the time-dependent properties the object has on any timestep accessible 
+    in the simulation
+
+    ...
+
+    Attributes
+    ----------
+    obj_prop : dict
+        a dictionary that contains all the initial information about the object
+    dimension : int, optional
+        the number of dimensions the object has / is in
+
+    Methods
+    -------
+    add_timestep(velocity, position):
+        appends a new timestep to the objects timeframe
     '''
 
-    default_obj = {
-        'name': 'Samuel',
-        'appearance':{
-            'shape': 'circle',
-            'colour': 'red'
-        },
-        'mass': 1, # the mass in grams
-        'velocity': [0, 0], # the velocity as two seperate velocity vectors, in m/s
-        'acceleration': [0, 1], # the acceleration as two seperate acceleration vectors in m/s
-        'position': [0, 0], # the position in kartesian coordinates
-    }
+    velocity = []
+    position = []
 
-    def __init__(self, obj_prop, dim=2):
-        super(Object, self).__init__()
+    def __init__(self, obj_prop, dimension=1):
 
-        # set the inner dict to the revised object information
-        super().update(self.revise_prop(obj_prop))
+        # the description of the shape
+        self.name = obj_prop['name']
+        self.shape = obj_prop['shape']
+        self.color = obj_prop['color']
+
+        # the static properties
+        self.dimension = dimension
+        self.mass = obj_prop['mass']
+        self.acceleration = obj_prop['acceleration']
+
+        # the time-dependent properties
+        self.velocity.append(obj_prop['velocity'])
+        self.position.append(obj_prop['position'])
+
+
+    def add_timestep(self, velocity, position):
+        '''
+        Add a new timestep to the objects timeframe. 
+
+        Paratemers
+        ----------
+        velocity : float
+            the new velocity of the object
+        position : Point
+            the new position of the object
+
+        Returns
+        -------
+        None
+        '''
+        self.velocity.append(velocity)
+        self.position.append(position)
+
+
+    def copy(self):
+        return copy(self)
 
 
     def revise_prop(self, obj_prop):
         # TODO: add a check of the form and the completion of the obj_prop dict
         # TODO: add a function to reformat the obj_prop dict
-        return self.default_obj
+        return obj_prop
 
     
-    # def __repr__(self):
-    #     return f"<class 'mapv.object'><name '{super().get('name')}', position {super().get('position')}>"
+    def __repr__(self):
+        return f"\n<\nclass 'mapv.object'\nname '{self.name}'\nshape '{self.shape}'\ncolor '{self.color}'\nmass {self.mass}kg\nacceleration {self.acceleration}m/s^2\nvelocity {self.velocity}\nposition {self.position}\n>\n"

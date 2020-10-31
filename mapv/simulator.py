@@ -19,7 +19,7 @@ def simulator(ctx, name):
     ctx.txt = name + ' > '
 
     # load the simulation data
-    ctx.obj = Simulation()
+    ctx.obj = Simulation('Karen')
 
 
 @simulator.command()
